@@ -13,3 +13,14 @@ def home(request):
     return render(request, 'main/home.html', {'result': result})
 
 
+def result(request):
+    result = None
+    if request.method == "POST":
+        form = myDef.MyForm(request.POST)
+        if form.is_valid():
+            input_data = form.cleaned_data['value']
+            result = myDef.getResult()
+    else:
+        form = myDef.MyForm()
+
+    return render(request, 'main/result.html', {'result': result, 'form': form})
