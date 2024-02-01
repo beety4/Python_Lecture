@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <h1>This is PyScript</h1>
+    <py-script>
+        print("Hello Guys")
+        #a = input("value : ")
+        #print(a)
+    </py-script>
+
+    <py-script src="news.py"></py-script>
+
+
+    <py-script>
+        input_txt = Element("input")
+        output_txt = Element("output")
+
+        def printIt(*args):
+            output_txt.element.innerText = input_txt.value
+            input_txt.clear()
+    </py-script>
+
+    <div>
+        <input id="input" type="text">
+        <button id="btn" pys-onClick="printIt">PrintIt</button>
+    </div>
+    <h1 id="output"></h1>
+</body>
+</html>

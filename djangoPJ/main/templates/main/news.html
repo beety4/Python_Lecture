@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webtoon Search</title>
+</head>
+<body>
+    <h1>Search Webtoon Title</h1>
+    <h1>Welcome</h1>
+    <form method="post" action="{% url 'news' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+    {% if result %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>표지</th>
+                    <th>제목</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key,value in result.items %}
+                <tr>
+                    <td><img src="{{ key }}" width="150px"></td>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INPUT OUTPUT</title>
+</head>
+<body>
+    <h1>IN OUT</h1>
+    <form method="post" action="{% url 'name' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enter</button>
+    </form>
+
+    <hr>
+    {% if result %}
+        <p>Result : {{ result }}</p>
+    {% endif %}
+</body>
+</html>
